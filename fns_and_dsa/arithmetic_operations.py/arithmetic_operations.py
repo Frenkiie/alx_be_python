@@ -1,15 +1,25 @@
-# main.py
 
-from fns_and_dsa.arithmetic_operations import perform_operation
+FAHRENHEIT_TO_CELSIUS_FACTOR =  5/9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
 
-def main():
-    print("Arithmetic Operations")
-    num1 = float(input("أدخل الرقم الأول: "))
-    num2 = float(input("أدخل الرقم الثاني: "))
-    operation = input("أدخل العملية (add, subtract, multiply, divide): ").strip().lower()
+def convert_to_celsius(fahrenheit):
+    return (fahrenheit-32)*FAHRENHEIT_TO_CELSIUS_FACTOR
 
-    result = perform_operation(num1, num2, operation)
-    print(f"النتيجة: {result}")
+def convert_to_fahrenheit(celsius):
+    return celsius*CELSIUS_TO_FAHRENHEIT_FACTOR+32
 
-if __name__ == "__main__":
-    main()
+temperature = int (input("Enter the temperature to convert: "))
+Unit = input ("Is this temperature in Celsius or Fahrenheit? (C/F): ") 
+if Unit == "F":
+    print(f"{temperature}°{Unit} is {convert_to_celsius(temperature)}°C")
+elif Unit == "C" : 
+    print(f"{temperature}°{Unit} is {convert_to_fahrenheit(temperature)}°F")
+else : print(f"Invalid temperature. Please enter a numeric value.")
+temperature = int (input('Enter the temperature to convert: '))
+Unit = input ('Is this temperature in Celsius or Fahrenheit? (C/F): ')
+if Unit == 'F':
+    print(f'{temperature}°{Unit} is {convert_to_celsius(temperature)}°C')
+elif Unit == 'C': 
+    print(f'{temperature}°{Unit} is {convert_to_fahrenheit(temperature)}°F')
+else: 
+    print(f'Invalid temperature. Please enter a numeric value.')
